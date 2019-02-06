@@ -21,8 +21,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @author = User.find(@post.user_id)
-
-    render json: params
+    @subs = @post.subs
     # @comments = @post.comments
   end
 
