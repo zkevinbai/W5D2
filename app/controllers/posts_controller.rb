@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @subs = Sub.all
   end
 
   def create
@@ -20,7 +21,9 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @author = User.find(@post.user_id)
-    @comments = @post.comments
+
+    render json: params
+    # @comments = @post.comments
   end
 
   def edit
