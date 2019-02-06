@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @author = User.find(@post.user_id)
     @subs = @post.subs
-    # @comments = @post.comments
+    @comments = @post.comments
   end
 
   def edit
